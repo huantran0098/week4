@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kevin F Celius</title>
+
+</head>
+<body>
+<script>
+    class Temperature {
+        temC
+
+        constructor(temC) {
+            this.temC = temC;
+
+        }
+
+        changeToF() {
+            return this.temC * 1.8 + 32
+        }
+
+        changeToKevin() {
+            return this.temC + 273.15
+        }
+    }
+
+    let tem = new Temperature(25)
+    alert("C to F: " + tem.changeToF() + "C to Kevin: " + tem.changeToKevin());
+</script>
+</body>
+</html>

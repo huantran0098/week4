@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP</title>
+</head>
+<body>
+<script>
+    // let MyDate = function (day, month, year) {
+    //     this.day = day
+    //     this.month = month
+    //     this.year = year
+    //     this.getDay = function () {
+    //         return this.day;
+    //     }
+    //     this.getMonth = function () {
+    //         return this.month;
+    //     }
+    //     this.getYear = function () {
+    //         return this.year;
+    //     }
+    //     this.setDay = function (day) {
+    //         this.day = day;
+    //     }
+    //     this.setMonth = function (month) {
+    //         this.month = month;
+    //     }
+    //     this.setYear = function (year) {
+    //         this.year = year;
+    //     }
+    //     setDate(){
+    //         this.day = daySet ;
+    //         this.month = monthSet;
+    //         this.year = yearSet;
+    //     }
+    //     toString() {
+    //         alert(this.day+ "/" + this.month + "/" + this.year)
+    //     }
+    // }
+    //
+    //
+    // let date = new MyDate(9, 9, 2000)
+    //
+    // alert(date.getDay() + "/" + date.getMonth() + "/" + date.getYear());
+    //
+    // date.setDay("18");
+    // date.setMonth("9");
+    // date.setYear("1998");
+    //
+    // alert(date.getDay() + "/" + date.getMonth() + "/" + date.getYear());
+    //
+    // date.setDate(14,9,1980)
+    // date.toString()
+    // alert(date.getDay() + "/" + date.getMonth() + "/" + date.getYear());
+
+    class MyDate {
+        day
+        month
+        year
+        constructor(day,month,year) {
+            this.day = day
+            this.month = month
+            this.year = year
+        }
+        getDay(){
+            return this.day
+        }
+        getMonth(){
+            return this.month
+        }
+        getYear(){
+            return this.year
+        }
+        setDay(daySet){
+            this.day = daySet
+        }
+        setMonth(monthSet){
+            this.month = monthSet
+        }
+        setYear(yearSet){
+            this.year = yearSet
+        }
+        setDate(daySet,monthSet,yearSet){
+            this.day = daySet
+            this.year = yearSet
+            this.month = monthSet
+        }
+        toString(){
+            alert(this.day + "/" + this.month + "/" + this.year)
+        }
+    }
+    let date = new MyDate(1,1,2222);
+    alert(date.day + "/" + date.month + "/" + date.year)
+    alert(date.getDay())
+    alert(date.getMonth())
+    alert(date.getYear())
+
+    MyDate.setDate(22,11,2021)
+    alert(date.getDay() + "/" + date.getMonth() + "/" + date.getYear())
+    MyDate.toString()
+
+
+</script>
+</body>
+</html>

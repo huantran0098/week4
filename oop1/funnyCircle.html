@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+<script>
+
+    class Circle {
+        x
+        y
+        radius
+
+        constructor(x,y,radius) {
+            this.x = x;
+            this.y  = y;
+            this.radius = radius;
+        }
+        getRandomHex(){
+            return Math.floor(Math.random()*255) // hàm random trả về từ 0-255;
+        }
+        getRandomColor() {//hàm tra về màu random
+            let red = this.getRandomHex();
+            let green = this.getRandomHex();
+            let blue = this.getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green +")";
+        }
+        speedX() {
+            this.x += 5;
+        }
+        speedY(){
+            this.y += 5;
+        }
+        changeRadius() {
+            radius += 2;
+        }
+        drawCircle(ctx) {
+            let radius = Math.floor(Math.random() * 80 );
+            let color = this.getRandomColor() ;
+            let x = Math.random() * window.innerWidth ; //random x theo chiều ngang
+            let y = Math.random() * window.innerHeight ; //random y theo chiều dọc
+
+            let circle = new Circle(x,y,radius)
+            ctx.beginPath();
+            ctx.arc(circle.x,circle.y,circle.radius,0 , 2 * Math.PI);
+            ctx.fillStyle = color ; //tô màu cho hình tròn đã random ở trên
+            ctx.fill();
+            }
+        //gọi 30 lần phương thức createCircle để tạo 30 hình tròn vs bán kính và màu khác nhau được random tự động
+        creatMultiCircle(ctx) {
+            for (let i = 0; i < 30; i++) {
+                this.creatCircle(ctx);
+            }
+        }
+    }
+    let ctx = document.getElementById("myCanvas").getContext("2d") ;
+    let circle = new Circle(1, 1, 1);
+
+    function draw() {
+        ctx.clearRect(0, 0, 1368, 700)
+        circle.creatMultiCircle(ctx)
+        setTimeout(draw, 1000)
+    }
+    let cir = new Circle(0, 0, 50)
+
+    function draw2(){
+        ctx.clearRect(0, 0, 1368, 700)
+        cir.speedX()
+        cir.speedY()
+        cir.changeRadius()
+        cir.drawCircle(ctx)
+        setTimeout(draw2, 100)
+    }
+    draw2()
+</script>
+</html>
