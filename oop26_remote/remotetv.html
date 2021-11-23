@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        codeRemote;
+
+        constructor(codeRemote) {
+            this.codeRemote = codeRemote;
+        }
+
+        turnOnOffTivi(tv) {
+            if(this.codeRemote === tv.codeRemote) {
+                tv.turnOnOff();
+                return tv.status;
+            }
+        }
+
+        setChanel(tv, number) {
+            if(this.codeRemote === tv.codeRemote) {
+                tv.switchChanel(number);
+            }
+        }
+
+        upChanel(tv) {
+            if(this.codeRemote === tv.codeRemote) {
+                tv.switchUpChanel();
+            }
+        }
+
+        downChanel(tv) {
+            if(this.codeRemote === tv.codeRemote) {
+                tv.switchDownChanel();
+            }
+        }
+
+        upVolume(tv) {
+            if(this.codeRemote === tv.codeRemote) {
+                tv.switchUpVolume();
+            }
+        }
+
+        downVolume(tv) {
+            if(this.codeRemote === tv.codeRemote) {
+                tv.switchDownVolume();
+            }
+        }
+
+    }
+
+  class Television {
+    status;
+    volume;
+    channel;
+
+    constructor(codeRemote) {
+      this.status = false;
+      this.volume = 5;
+      this.channel = 1;
+      this.codeRemote = codeRemote;
+    }
+
+    turnOnOff() {
+      this.status = !this.status;
+    }
+
+    switchChanel(channel) {
+      if (this.status) {
+        return this.channel = channel;
+      }
+    }
+
+    switchUpChanel() {
+      if (this.status) {
+        return this.channel += 1;
+      }
+    }
+
+    switchDownChanel() {
+      if (this.status) {
+        return this.channel -= 1;
+      }
+    }
+
+    switchUpVolume() {
+      if (this.status) {
+        return this.volume += 1;
+      }
+    }
+
+    switchDownVolume() {
+      if (this.status) {
+        return this.volume -= 1;
+      }
+    }
+
+  }
+    let tivi = new Television(1);
+    let remote = new Remote(1);
+</script>
+</body>
+</html>
